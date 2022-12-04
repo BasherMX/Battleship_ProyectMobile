@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         jugar_btn = findViewById(R.id.jugar_btn)
         nombre_txt = findViewById(R.id.nombre_txt)
 
+        //Quitar
+        nombre_txt.setText("Ulises")
+
         jugar_btn.setOnClickListener(){
             if(nombre_txt.text.toString() != ""){
                 val i = Intent(this, ModoJuego::class.java)

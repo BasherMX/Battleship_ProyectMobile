@@ -114,6 +114,14 @@ class TresEnRaya : View {
         }
     }
 
+    fun setTablero(Rec: Array<Array<Int>>) {
+        for(i in 0..(Partes-1)){
+            for(j in 0..(Partes-1)){
+                setCasilla(i,j,Rec[i][j])
+            }
+        }
+    }
+
     fun setCasilla(fil: Int, col: Int, valor: Int) {
         tablero[fil][col] = valor
     }
@@ -222,7 +230,7 @@ class TresEnRaya : View {
                     tablero[fil][col] = BARCO
                 }else{
                     existe = 1;
-                    contadorBarcos = 16
+                    //contadorBarcos = 16
                 }
 
             }

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import org.json.JSONArray
+import kotlin.random.Random
 
 class ChoseYourBoats : AppCompatActivity() {
     private lateinit var btnFicha : Button
@@ -25,8 +26,6 @@ class ChoseYourBoats : AppCompatActivity() {
         lblCasilla = findViewById(R.id.lblCasilla)
         lblCasilla.text = "Elije tus barcos";
 
-        var TableroAuto: String = ""
-
 
         //recuperar el nombre del jugador
         var nombreJugador= intent.getStringExtra("Nombre")
@@ -40,21 +39,21 @@ class ChoseYourBoats : AppCompatActivity() {
             if(TableroAux.isEmpty()){
                 Toast.makeText(this, "Porfavor seleccione al menos 16 casillas", Toast.LENGTH_SHORT).show()
             }else{
-                val jsonTablero = JSONArray(listOf(TableroAux))
-                Toast.makeText(this, jsonTablero.toString(), Toast.LENGTH_SHORT).show()
 
                 if(modoJuego == "uno"){
                     val i = Intent(this, TableroJuego::class.java)
                     i.putExtra("Nombre",nombreJugador)
                     i.putExtra("Modo","uno")
-                    i.putExtra("TableroJugador",jsonTablero.toString())
+                    i.putExtra("TableroJugador",TableroAux)
+                    var TableroAuto = generarTableroAuto()
+                    i.putExtra("TableroAuto",TableroAuto)
                     startActivity(i)
                 }else if(modoJuego == "dos"){
                     val i = Intent(this, TableroJuego::class.java)
                     i.putExtra("Nombre",nombreJugador)
                     i.putExtra("Modo","dos")
-                    i.putExtra("TableroJugador",jsonTablero.toString())
-                    i.putExtra("TableroAuto",TableroAuto)
+                    i.putExtra("TableroJugadorUno",TableroAux)
+                    i.putExtra("TableroJugadorDos",TableroAux)
                     startActivity(i)
 
                 }
@@ -84,5 +83,42 @@ class ChoseYourBoats : AppCompatActivity() {
         }
 
 
+
+
+
+
+
+
+    }//onCreate
+
+    fun generarTableroAuto(): Array<Array<Int>> {
+        var Tt = Array(10){Array(10){ 0}}
+        var contador = 0
+
+        do {
+            Tt = Array(10){Array(10){ 0}}
+            contador = 0
+
+            for(i in 0..9){
+                for(j in 0..9){
+
+                    val rand = (0..10).random()
+
+                    if(rand > 9 && contador < 16){
+                        println(contador)
+                        contador++
+                        Tt[i][j] = 2
+                    }
+                }
+            }
+        }while (contador < 16)
+
+       // Toast.makeText(this, JSONArray(Tt).toString(), Toast.LENGTH_SHORT).show()
+
+
+        return Tt
+
     }
-}
+
+
+}//class
