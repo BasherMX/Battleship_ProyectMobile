@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/botones"
-            android:text="CAMBIAR"
+            android:text="GUARDAR BARCOS"
             android:textColor="@color/white"
             android:textFontWeight="900"
             android:textSize="20sp"

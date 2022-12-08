@@ -126,12 +126,21 @@ class TresEnRaya : View {
         tablero[fil][col] = valor
     }
 
-    fun getCasilla(fil: Int, col: Int) : Int {
+    fun getCasilla(fil: Int, col: Int): Int{
         return tablero[fil][col]
     }
 
-    fun getBtnNombre(): String{
-        return btnNombre
+    fun getContador(): Int{
+        var cont = 0
+        for(i in 0..(Partes-1)){
+            for(j in 0..(Partes-1)){
+                if(tablero[i][j] == 3) { //igual a choque
+                    cont++
+                }
+            }
+        }
+
+        return cont
     }
 
     fun GuardaryJugar() : Array<Array<Int>>{
@@ -141,7 +150,6 @@ class TresEnRaya : View {
         }else{
             return Array(0){Array(0){ 0}}
         }
-
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -204,13 +212,11 @@ class TresEnRaya : View {
                         pAgua
                     )
                 }
-
-
             }
         }
 
-
-
+        //Refrescamos el control
+        this.invalidate()
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -232,18 +238,30 @@ class TresEnRaya : View {
                     existe = 1;
                     //contadorBarcos = 16
                 }
-
             }
         }
+
+
 
         if(ModoJuego == 2){
-            if(tablero[fil][col] == BARCO){
-                tablero[fil][col] = CHOQUE
-            }else if(tablero[fil][col] == VACIO){
-                tablero[fil][col] = AGUA
+
+            if(tablero[fil][col] == AGUA || tablero[fil][col] == CHOQUE){
+                existe = 1
             }
 
+            if(tablero[fil][col] == BARCO){
+                tablero[fil][col] = CHOQUE
+            }
+
+            if(tablero[fil][col] == VACIO) {
+                    tablero[fil][col] = AGUA
+            }
+
+
+
+
         }
+
 
         //Lanzamos el evento de pulsación
         listener?.onCasillaSeleccionada(contadorBarcos, existe);

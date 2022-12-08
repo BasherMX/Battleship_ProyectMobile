@@ -45,15 +45,14 @@ class ChoseYourBoats : AppCompatActivity() {
                     i.putExtra("Nombre",nombreJugador)
                     i.putExtra("Modo","uno")
                     i.putExtra("TableroJugador",TableroAux)
-                    var TableroAuto = generarTableroAuto()
-                    i.putExtra("TableroAuto",TableroAuto)
+                    i.putExtra("TableroAuto",generarTableroAuto())
                     startActivity(i)
                 }else if(modoJuego == "dos"){
+                    //Guardar ambos tableros en la bd e ir a la siguiente actividad
+
                     val i = Intent(this, TableroJuego::class.java)
                     i.putExtra("Nombre",nombreJugador)
                     i.putExtra("Modo","dos")
-                    i.putExtra("TableroJugadorUno",TableroAux)
-                    i.putExtra("TableroJugadorDos",TableroAux)
                     startActivity(i)
 
                 }
@@ -62,7 +61,6 @@ class ChoseYourBoats : AppCompatActivity() {
             }
         }
 
-        btnFicha.text = terTablero.getBtnNombre()
 
 
 
@@ -81,6 +79,8 @@ class ChoseYourBoats : AppCompatActivity() {
             }
 
         }
+
+
 
 
 
