@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import org.json.JSONArray
 import kotlin.random.Random
 
@@ -15,6 +16,8 @@ class ChoseYourBoats : AppCompatActivity() {
     private lateinit var lblCasilla : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val db = FirebaseFirestore.getInstance()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chose_your_boats)
 
@@ -28,7 +31,7 @@ class ChoseYourBoats : AppCompatActivity() {
 
 
         //recuperar el nombre del jugador
-        var nombreJugador= intent.getStringExtra("Nombre")
+        var nombreJugador:String?= intent.getStringExtra("Nombre")
         var modoJuego= intent.getStringExtra("Modo")
 
 
@@ -53,6 +56,12 @@ class ChoseYourBoats : AppCompatActivity() {
                     val i = Intent(this, TableroJuego::class.java)
                     i.putExtra("Nombre",nombreJugador)
                     i.putExtra("Modo","dos")
+                    if (nombreJugador != null) {
+                        db.collection("user").document(nombreJugador).set(
+                            hashMapOf("tablero" to TableroAux,
+                                "tiro" to 0)
+                        )
+                    }
                     startActivity(i)
 
                 }

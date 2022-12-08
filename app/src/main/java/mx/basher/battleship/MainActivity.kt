@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         nombre_txt = findViewById(R.id.nombre_txt)
 
         //Quitar
-        nombre_txt.setText("Ulises")
+        //nombre_txt.setText("Ulises")
 
         jugar_btn.setOnClickListener(){
             if(nombre_txt.text.toString() != ""){

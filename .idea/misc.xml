@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jonyg/AndroidStudioProjects/Battleship_ProyectMobile/app/src/main/res/layout/activity_chose_your_boats.xml" value="0.25" />
+        <entry key="..\:/Users/jonyg/AndroidStudioProjects/Battleship_ProyectMobile/app/src/main/res/layout/activity_main.xml" value="0.2269021739130435" />
+        <entry key="..\:/Users/jonyg/AndroidStudioProjects/Battleship_ProyectMobile/app/src/main/res/layout/activity_modo_juego.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/jonyg/AndroidStudioProjects/Battleship_ProyectMobile/app/src/main/res/layout/activity_tablero_juego.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/jonyg/AndroidStudioProjects/Battleship_ProyectMobile/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/botones.xml" value="0.1145" />
         <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
