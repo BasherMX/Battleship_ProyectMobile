@@ -19,37 +19,35 @@
         app:srcCompat="@drawable/mar" />
 
     <TextView
-        android:id="@+id/winnerTXT"
+        android:id="@+id/ganadorTXT_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="177dp"
         android:fontFamily="@font/inter_bold"
-        android:text="NOMBRE"
-        android:textColor="@color/fondoBotones"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/resaltadoLetra"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/ganadorTXT2" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="276dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/barco" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/ganadorTXT2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_black"
         android:shadowColor="@color/sombraLetras"
         android:shadowRadius="2"
@@ -58,17 +56,17 @@
         android:textColor="@color/black"
         android:textSize="60sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/winnerTXT"
+        app:layout_constraintBottom_toTopOf="@+id/ganadorTXT_nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/ganadorTXT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-7dp"
         android:fontFamily="@font/inter_black"
         android:shadowColor="@color/sombraLetras"
         android:shadowRadius="2"
@@ -78,35 +76,52 @@
         android:textSize="60sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/ganadorTXT2" />
 
     <Button
         android:id="@+id/volverjugar_btn"
         style="@style/botones"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/botones"
+        android:padding="0dp"
         android:text="Volver a Jugar"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/winnerTXT" />
+        app:layout_constraintTop_toBottomOf="@+id/ganadorTXT_nombre" />
 
     <Button
         android:id="@+id/fin_btn"
         style="@style/botones"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/botones"
-        android:text="Finalizar"
-        android:textSize="30sp"
+        android:text="CREDITOS"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/winnerTXT" />
+        app:layout_constraintTop_toBottomOf="@+id/volverjugar_btn" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ganadorTXT_nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ganadorTXT_nombre"
+        app:layout_constraintTop_toTopOf="@+id/ganadorTXT_nombre"
+        app:srcCompat="@drawable/ic_baseline_sentiment_very_satisfied_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

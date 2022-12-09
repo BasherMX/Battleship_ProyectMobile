@@ -25,6 +25,7 @@ class ModoJuego : AppCompatActivity() {
             i.putExtra("Nombre",nombreJugador)
             i.putExtra("Modo","uno")
             startActivity(i)
+            finish();
 
         }
 
@@ -32,7 +33,9 @@ class ModoJuego : AppCompatActivity() {
             val i = Intent(this, ChoseYourBoats::class.java)
             i.putExtra("Nombre",nombreJugador)
             i.putExtra("Modo","dos")
+            i.putExtra("turno","uno")
             startActivity(i)
+            finish();
 
         }
 

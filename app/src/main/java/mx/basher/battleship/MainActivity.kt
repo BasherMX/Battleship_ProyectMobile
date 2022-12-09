@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         setTheme(R.style.Theme_Battleship)
-        Thread.sleep(1400)
+        Thread.sleep(1200)
 
         super.onCreate(savedInstanceState)
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         jugar_btn.setOnClickListener(){
             if(nombre_txt.text.toString() != ""){
                 val i = Intent(this, ModoJuego::class.java)
-                i.putExtra("Nombre",nombre_txt.text.toString())
+                i.putExtra("Nombre",nombre_txt.text.toString()!!.uppercase())
                 startActivity(i)
             }else{
                 Toast.makeText(this, "Por favor Ingresa un Nombre", Toast.LENGTH_SHORT).show()

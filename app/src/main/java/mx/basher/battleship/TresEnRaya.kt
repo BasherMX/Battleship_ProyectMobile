@@ -7,6 +7,9 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class TresEnRaya : View {
     companion object{
@@ -17,12 +20,10 @@ class TresEnRaya : View {
         var filR = 0
         var colR = 0
         val Partes = 10
-        var btnNombre = "Guardar Barcos"
         var ModoJuego = 1 //1 - elegir barcos //2 - Pelear
     }
 
     private val tablero = Array(10){Array(10){ VACIO }}
-    private val tableroGame = Array(10){Array(10){ VACIO }}
     var contadorBarcos: Int = 0;
 
     private val pBorde = Paint().apply {
@@ -106,12 +107,17 @@ class TresEnRaya : View {
         return res
     }
 
-    fun limpiar() {
+    fun limpiarTodo() {
         for(i in 0..(Partes-1)){
             for(j in 0..(Partes-1)){
                 tablero[i][j] = 0
             }
         }
+        contadorBarcos = 0;
+    }
+
+    fun setModoJuego(md: Int){
+        ModoJuego = md
     }
 
     fun setTablero(Rec: Array<Array<Int>>) {
@@ -139,13 +145,11 @@ class TresEnRaya : View {
                 }
             }
         }
-
         return cont
     }
 
     fun GuardaryJugar() : Array<Array<Int>>{
         if(contadorBarcos == 16){
-            ModoJuego = 2
             return tablero;
         }else{
             return Array(0){Array(0){ 0}}
@@ -203,7 +207,6 @@ class TresEnRaya : View {
                 }
 
                 if (tablero[fil][col] == AGUA && ModoJuego == 2) {
-
                     canvas.drawRect(
                         (col) * (ancho/ Partes) + ancho / Partes * 0.05f,
                         (fil) * (ancho/ Partes) + ancho / Partes * 0.05f,
@@ -218,6 +221,7 @@ class TresEnRaya : View {
         //Refrescamos el control
         this.invalidate()
     }
+
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         val fil = (event!!.y / (measuredHeight / Partes)).toInt()

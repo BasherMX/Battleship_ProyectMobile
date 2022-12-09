@@ -7,6 +7,42 @@
     android:background="@color/fondo"
     tools:context=".TableroJuego">
 
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="490dp"
+        android:layout_height="253dp"
+        android:layout_marginEnd="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/mar" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="-30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtJugadorName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/barco" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/puntos_tablero"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/puntos_tablero"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
@@ -22,12 +58,20 @@
             android:id="@+id/tableroComputadora"
             android:layout_width="280dp"
             android:layout_height="280dp"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:background="@drawable/puntos_tablero" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/vs"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="60dp"
+            android:fontFamily="@font/inter_extrabold"
+            android:gravity="center_vertical"
+            android:text="VS"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="italic" />
 
         <mx.basher.battleship.TresEnRaya
             android:id="@+id/tableroJugador"
@@ -40,99 +84,77 @@
 
     <TextView
         android:id="@+id/txtJugadorName"
-        android:layout_width="259dp"
+        style="@style/shadoweffect"
+        android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/inter_extrabold"
         android:text="NOMBRE"
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/jugadorName3"
+        android:id="@+id/txtJugador2Name"
+        style="@style/shadoweffect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="4dp"
         android:fontFamily="@font/inter_extrabold"
         android:text="COMPUTADORA"
         android:textAlignment="textEnd"
         android:textColor="@color/white"
+
         android:textSize="30sp"
-        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/jugadorName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-246dp"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/inter_extrabold"
-        android:text="COMPUTADORA"
-        android:textAlignment="textEnd"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <TextView
         android:id="@+id/puntosComputadora"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/white"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/puntos_tablero"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="@color/fondoBotones"
-        android:textSize="40sp"
+        android:textColor="@color/resaltadoLetra"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/puntosJugador"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/puntos_tablero"
         android:text="0"
         android:textAlignment="center"
-        android:textColor="@color/fondoBotones"
-        android:textSize="40sp"
+        android:textColor="@color/resaltadoLetra"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/vs"
-        android:layout_width="61dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_extrabold"
-        android:text="VS"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
